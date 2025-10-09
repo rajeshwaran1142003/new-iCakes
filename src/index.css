@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased text-gray-900;
+  }
+}
+
+@layer components {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-pink-500 to-pink-600 
+           text-white px-6 py-3 rounded-full 
+           hover:from-pink-600 hover:to-pink-700 
+           transition-all duration-300 transform 
+           hover:-translate-y-1 font-medium shadow-lg 
+           focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-pink-500 text-pink-600 
+           px-6 py-3 rounded-full 
+           hover:bg-pink-500 hover:text-white 
+           transition-all duration-300 font-medium 
+           focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2;
+  }
+
+  .input-primary {
+    @apply w-full px-4 py-3 border border-gray-200 
+           rounded-xl focus:ring-2 focus:ring-pink-500 
+           focus:border-transparent outline-none transition-all;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 transform 
+           hover:-translate-y-2 hover:shadow-xl;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-pink-500 to-pink-700 
+           bg-clip-text text-transparent;
+  }
+
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .shimmer::before {
+    content: '';
+    @apply absolute top-0 -left-full w-full h-full 
+           bg-shimmer-gradient animate-shimmer;
+  }
+}
+
+/* Intersection Observer Animation Classes */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-pink-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-pink-400;
+}
