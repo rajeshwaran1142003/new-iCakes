@@ -9,13 +9,13 @@ const Hero: React.FC = () => {
 
   const courses = [
     {
-      id: 'basic',
-      title: 'Basic Baking Class',
-      subtitle: 'Perfect for beginners! Learn cake foundations and decorating essentials.',
-      intro: 'Perfect for beginners, our Basic Baking Class teaches the fundamentals of baking. You\'ll learn to create delicious cakes, cookies, brownies, and more with step-by-step guidance.',
-      image: assetPath('/photo/Basic.png'),
-      link: '/courses/basic',
-      color: 'from-pink-400 to-pink-600'
+      id: 'master',
+      title: 'Master Baking Class',
+      subtitle: 'Become a professional baker with complete mastery and certification.',
+      intro: 'Our Master Baking Class is designed for those who want to perfect their craft. You will learn professional techniques and create everything from elegant pastries to sophisticated multi-layered cakes.',
+      image: assetPath('/photo/Master.png'),
+      link: '/courses/master',
+      color: 'from-rose-500 to-pink-700'
     },
     {
       id: 'advanced',
@@ -27,13 +27,13 @@ const Hero: React.FC = () => {
       color: 'from-pink-500 to-rose-600'
     },
     {
-      id: 'master',
-      title: 'Master Baking Class',
-      subtitle: 'Become a professional baker with complete mastery and certification.',
-      intro: 'Our Master Baking Class is designed for those who want to perfect their craft. You will learn professional techniques and create everything from elegant pastries to sophisticated multi-layered cakes.',
-      image: assetPath('/photo/Master.png'),
-      link: '/courses/master',
-      color: 'from-rose-500 to-pink-700'
+      id: 'basic',
+      title: 'Basic Baking Class',
+      subtitle: 'Perfect for beginners! Learn cake foundations and decorating essentials.',
+      intro: 'Perfect for beginners, our Basic Baking Class teaches the fundamentals of baking. You\'ll learn to create delicious cakes, cookies, brownies, and more with step-by-step guidance.',
+      image: assetPath('/photo/Basic.png'),
+      link: '/courses/basic',
+      color: 'from-pink-400 to-pink-600'
     }
   ];
 

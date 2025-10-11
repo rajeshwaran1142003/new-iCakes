@@ -8,24 +8,6 @@ const Course: React.FC = () => {
 
   const courses = [
     {
-      id: 'basic',
-      title: 'Basic Baking Class',
-      subtitle: 'Perfect for Beginners',
-      duration: '3 Days',
-      level: 'Beginner',
-      image: assetPath('/img/design(4).png?v=2'),
-      description:
-        "Perfect for beginners, our Basic Baking Class teaches the fundamentals of baking. You'll learn to create delicious cakes, cookies, brownies, and more with step-by-step guidance.",
-      badge: 'Foundational',
-      color: {
-        primary: 'from-amber-500 to-orange-500',
-        secondary: 'from-amber-50 to-orange-50',
-        text: 'text-amber-600',
-        badge: 'bg-amber-500',
-      },
-      link: '/courses/basic',
-    },
-    {
       id: 'master',
       title: 'Master Baking Class',
       subtitle: 'Perfect Your Craft',
@@ -61,6 +43,24 @@ const Course: React.FC = () => {
         badge: 'bg-blue-500',
       },
       link: '/courses/advanced',
+    },
+    {
+      id: 'basic',
+      title: 'Basic Baking Class',
+      subtitle: 'Perfect for Beginners',
+      duration: '3 Days',
+      level: 'Beginner',
+      image: assetPath('/img/design(4).png?v=2'),
+      description:
+        "Perfect for beginners, our Basic Baking Class teaches the fundamentals of baking. You'll learn to create delicious cakes, cookies, brownies, and more with step-by-step guidance.",
+      badge: 'Foundational',
+      color: {
+        primary: 'from-amber-500 to-orange-500',
+        secondary: 'from-amber-50 to-orange-50',
+        text: 'text-amber-600',
+        badge: 'bg-amber-500',
+      },
+      link: '/courses/basic',
     },
   ];
 
@@ -198,17 +198,14 @@ const Course: React.FC = () => {
 
                   <div className="grid grid-cols-3 gap-3">
                     <div className={`bg-gradient-to-br ${course.color.secondary} p-3 rounded-xl text-center group-hover:scale-105 transition-transform duration-300`}>
-                      <Calendar className={`h-5 w-5 ${course.color.text} mx-auto mb-1`} />
                       <p className="text-xs text-gray-600 font-medium mb-0.5">Duration</p>
                       <p className="text-sm font-bold text-gray-900">{course.duration}</p>
                     </div>
                     <div className={`bg-gradient-to-br ${course.color.secondary} p-3 rounded-xl text-center group-hover:scale-105 transition-transform duration-300`}>
-                      <Clock className={`h-5 w-5 ${course.color.text} mx-auto mb-1`} />
                       <p className="text-xs text-gray-600 font-medium mb-0.5">Daily</p>
                       <p className="text-sm font-bold text-gray-900">3.5 hrs</p>
                     </div>
                     <div className={`bg-gradient-to-br ${course.color.secondary} p-3 rounded-xl text-center group-hover:scale-105 transition-transform duration-300`}>
-                      <Users className={`h-5 w-5 ${course.color.text} mx-auto mb-1`} />
                       <p className="text-xs text-gray-600 font-medium mb-0.5">Batch</p>
                       <p className="text-sm font-bold text-gray-900">6-8</p>
                     </div>

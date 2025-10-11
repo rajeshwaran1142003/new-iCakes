@@ -8,33 +8,32 @@ const Courses: React.FC = () => {
 
   const courses = [
     {
-      id: 'basic',
-      title: 'Basic Baking Class',
-      subtitle: 'Perfect for Beginners',
-      duration: '3 Days',
-      type: 'Foundational Course',
+      id: 'master',
+      title: 'Master Baking Class',
+      subtitle: 'Perfect Your Craft',
+      duration: '12 Days',
+      type: 'Master Program',
       schedule: '10:30 AM - 2:00 PM',
-      level: 'Beginner Friendly',
-      image: assetPath('/img/design(4).png?v=2'),
-      description: 'Perfect for beginners, our Basic Baking Class teaches the fundamentals of baking. You\'ll learn to create delicious cakes, cookies, brownies, and more with step-by-step guidance.',
+      level: 'Expert',
+      image: assetPath('/img/design.png?v=2'),
+      description: 'Our Master Baking Class is designed for those who want to perfect their craft. You will learn professional techniques and create everything from elegant pastries to sophisticated multi-layered cakes.',
       highlights: [
-        'Vanilla & Chocolate Sponge Cakes',
-        'Brownies & Cupcakes',
-        'Coconut Cookies',
-        'Tea Cakes & Other Desserts'
+        'Multi-layered Cakes & Tiered Wedding Cakes',
+        'Advanced Buttercream & Fondant Artistry',
+        'Unique Pastries & French Macarons'
       ],
       benefits: [
-        'Beginner-friendly curriculum',
-        'All ingredients provided',
-        'Take-home recipe booklet'
+        'Master certification',
+        'Professional portfolio guidance',
+        'Lifetime recipe access'
       ],
       popular: false,
       color: {
-        primary: 'from-amber-500 to-orange-500',
-        secondary: 'from-amber-50 to-orange-50',
-        badge: 'bg-amber-500',
-        text: 'text-amber-600',
-        hover: 'hover:from-amber-600 hover:to-orange-600'
+        primary: 'from-rose-500 to-pink-600',
+        secondary: 'from-rose-50 to-pink-50',
+        badge: 'bg-rose-500',
+        text: 'text-rose-600',
+        hover: 'hover:from-rose-600 hover:to-pink-700'
       }
     },
     {
@@ -67,32 +66,33 @@ const Courses: React.FC = () => {
       }
     },
     {
-      id: 'master',
-      title: 'Master Baking Class',
-      subtitle: 'Perfect Your Craft',
-      duration: '12 Days',
-      type: 'Master Program',
+      id: 'basic',
+      title: 'Basic Baking Class',
+      subtitle: 'Perfect for Beginners',
+      duration: '3 Days',
+      type: 'Foundational Course',
       schedule: '10:30 AM - 2:00 PM',
-      level: 'Expert',
-      image: assetPath('/img/design.png?v=2'),
-      description: 'Our Master Baking Class is designed for those who want to perfect their craft. You will learn professional techniques and create everything from elegant pastries to sophisticated multi-layered cakes.',
+      level: 'Beginner Friendly',
+      image: assetPath('/img/design(4).png?v=2'),
+      description: 'Perfect for beginners, our Basic Baking Class teaches the fundamentals of baking. You\'ll learn to create delicious cakes, cookies, brownies, and more with step-by-step guidance.',
       highlights: [
-        'Multi-layered Cakes & Tiered Wedding Cakes',
-        'Advanced Buttercream & Fondant Artistry',
-        'Unique Pastries & French Macarons'
+        'Vanilla & Chocolate Sponge Cakes',
+        'Brownies & Cupcakes',
+        'Coconut Cookies',
+        'Tea Cakes & Other Desserts'
       ],
       benefits: [
-        'Master certification',
-        'Professional portfolio guidance',
-        'Lifetime recipe access'
+        'Beginner-friendly curriculum',
+        'All ingredients provided',
+        'Take-home recipe booklet'
       ],
       popular: false,
       color: {
-        primary: 'from-rose-500 to-pink-600',
-        secondary: 'from-rose-50 to-pink-50',
-        badge: 'bg-rose-500',
-        text: 'text-rose-600',
-        hover: 'hover:from-rose-600 hover:to-pink-700'
+        primary: 'from-amber-500 to-orange-500',
+        secondary: 'from-amber-50 to-orange-50',
+        badge: 'bg-amber-500',
+        text: 'text-amber-600',
+        hover: 'hover:from-amber-600 hover:to-orange-600'
       }
     }
   ];
@@ -156,45 +156,49 @@ const Courses: React.FC = () => {
         </div>
 
         {/* Vertical, alternating course sections */}
-        <div className="space-y-20 md:space-y-24">
+        <div className="space-y-16 sm:space-y-20 md:space-y-24">
           {courses.map((course, index) => (
-            <div key={course.id} className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div key={course.id} className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
               {/* Text column */}
-              <div className={`${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                <div className="inline-block bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-medium mb-4">Our Courses</div>
-                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+              <div className={`${index % 2 === 1 ? 'md:order-2' : ''} px-4 sm:px-0`}>
+                <div className="inline-block bg-pink-100 text-pink-600 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">Our Courses</div>
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
                   {course.title}
                 </h3>
-                <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">
                   {course.description}
                 </p>
-                <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-8">
                   <div className="flex items-center space-x-2">
-                    <Calendar className={`h-5 w-5 ${course.color.text}`} />
-                    <span className="text-gray-700 font-medium">{course.duration}</span>
+                    <Calendar className={`h-4 w-4 sm:h-5 sm:w-5 ${course.color.text}`} />
+                    <span className="text-sm sm:text-base text-gray-700 font-medium">{course.duration}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Clock className={`h-5 w-5 ${course.color.text}`} />
-                    <span className="text-gray-700 font-medium">Daily 3.5 hrs</span>
+                    <Clock className={`h-4 w-4 sm:h-5 sm:w-5 ${course.color.text}`} />
+                    <span className="text-sm sm:text-base text-gray-700 font-medium">Daily 3.5 hrs</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Users className={`h-5 w-5 ${course.color.text}`} />
-                    <span className="text-gray-700 font-medium">Batch 6-8</span>
+                    <Users className={`h-4 w-4 sm:h-5 sm:w-5 ${course.color.text}`} />
+                    <span className="text-sm sm:text-base text-gray-700 font-medium">Batch 6-8</span>
                   </div>
                 </div>
                 <Link
                   to={`/courses/${course.id}`}
-                  className={`inline-flex items-center space-x-2 bg-gradient-to-r ${course.color.primary} ${course.color.hover} text-white px-8 py-4 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-lg`}
+                  className={`inline-flex items-center space-x-2 bg-gradient-to-r ${course.color.primary} ${course.color.hover} text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base`}
                 >
                   <span>Learn More</span>
-                  <ArrowRight className="h-5 w-5" />
+                  <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
                 </Link>
               </div>
 
               {/* Image column */}
               <div className={`${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
-                  <img src={course.image} alt={course.title} className="w-full h-[420px] object-cover" />
+                <div className="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] shadow-xl">
+                  <img 
+                    src={course.image} 
+                    alt={course.title} 
+                    className="w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[420px] object-cover object-center transition-transform duration-700 hover:scale-105" 
+                  />
                   <div className="absolute inset-0 pointer-events-none" style={{
                     background: 'radial-gradient(circle at 30% 20%, rgba(255,255,255,0.25), transparent 60%)'
                   }}></div>

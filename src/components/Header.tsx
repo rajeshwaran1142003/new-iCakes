@@ -41,10 +41,19 @@ export default function Header() {
         isScrolled ? 'bg-white' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex justify-between items-center h-16 sm:h-18 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src={assetPath('/logo.jpg')} 
+              alt="Ayath iCakes Logo" 
+              className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover shadow-lg hover:shadow-xl transition-shadow duration-300"
+            />
+            <div className="hidden sm:block">
+              <h1 className="text-lg sm:text-xl font-bold text-gray-900">Ayath iCakes</h1>
+              <p className="text-xs sm:text-sm text-gray-600">Baking Academy</p>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -87,8 +96,8 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden pb-6 bg-white/90 backdrop-blur-md">
-            <nav className="flex flex-col space-y-4">
+          <div className="md:hidden pb-4 bg-white/90 backdrop-blur-md">
+            <nav className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -98,7 +107,7 @@ export default function Header() {
                     isActiveLink(item.path)
                       ? 'text-pink-600 font-bold'
                       : 'text-black hover:text-pink-400'
-                  } px-4 py-2 rounded-lg`}
+                  } px-3 py-2 rounded-lg`}
                 >
                   {item.name}
                 </Link>

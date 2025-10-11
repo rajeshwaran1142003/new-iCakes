@@ -1,34 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { assetPath } from '../utils/assetPath';
 
 const HeroCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const navigate = useNavigate();
 
-  const images = [
-    assetPath('/hero/Basic.png'),
-    assetPath('/hero/advance.png'),
-    assetPath('/hero/master.png')
+  const slides = [
+    {
+      image: assetPath('/hero/master.png'),
+      route: '/courses/master',
+      title: 'Master Baking Class'
+    },
+    {
+      image: assetPath('/hero/advance.png'),
+      route: '/courses/advanced',
+      title: 'Advanced Baking Class'
+    },
+    {
+      image: assetPath('/hero/Basic.png'),
+      route: '/courses/basic',
+      title: 'Basic Baking Class'
+    }
   ];
 
   // Auto-play carousel
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % images.length);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000); // Change slide every 5 seconds
     return () => clearInterval(interval);
-  }, [isAutoPlaying, images.length]);
+  }, [isAutoPlaying, slides.length]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % images.length);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
     setIsAutoPlaying(false);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
     setIsAutoPlaying(false);
+  };
+
+  const handleJoinNow = () => {
+    navigate(slides[currentSlide].route);
   };
 
   const goToSlide = (index: number) => {
@@ -60,7 +78,7 @@ const HeroCarousel: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-screen bg-gray-100 overflow-hidden">
+    <section className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-screen overflow-hidden bg-gradient-to-br from-pink-50 to-rose-50">
       {/* Carousel container */}
       <div 
         className="relative w-full h-full"
@@ -68,25 +86,44 @@ const HeroCarousel: React.FC = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Slides */}
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-              index === currentSlide 
-                ? 'opacity-100 translate-x-0' 
-                : index < currentSlide 
-                  ? 'opacity-0 -translate-x-full' 
-                  : 'opacity-0 translate-x-full'
-            }`}
-          >
-            <img
-              src={image}
-              alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover object-center"
-            />
-          </div>
-        ))}
+        {/* Slides wrapper with smooth horizontal sliding - Desktop: full width, Mobile/Tablet: show adjacent slides */}
+        <div 
+          className="flex h-full transition-transform duration-700 ease-out lg:gap-0 gap-4 sm:gap-6 md:gap-8 lg:px-0 px-4 sm:px-6 md:px-8"
+          style={{ 
+            transform: window.innerWidth >= 1024 
+              ? `translateX(-${currentSlide * 100}%)` 
+              : `translateX(calc(-${currentSlide * 100}% - ${currentSlide * (window.innerWidth < 640 ? 16 : window.innerWidth < 768 ? 24 : 32)}px))` 
+          }}
+        >
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`lg:min-w-full min-w-[calc(100%-2rem)] sm:min-w-[calc(100%-3rem)] md:min-w-[calc(100%-4rem)] h-full flex-shrink-0 relative lg:rounded-none rounded-2xl overflow-hidden transition-all duration-500 ${
+                index === currentSlide 
+                  ? 'scale-100 opacity-100 lg:shadow-none shadow-2xl' 
+                  : 'scale-95 opacity-60 lg:opacity-100 lg:scale-100'
+              }`}
+            >
+              {/* Desktop: Full cover image */}
+              <div className="hidden lg:block w-full h-full">
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+              
+              {/* Mobile/Tablet: Contained image with padding */}
+              <div className="lg:hidden w-full h-full bg-white p-4 sm:p-6 md:p-8 flex items-center justify-center">
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
 
         {/* Navigation arrows */}
         <button
@@ -104,10 +141,26 @@ const HeroCarousel: React.FC = () => {
           <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-white group-hover:text-pink-500 transition-colors" />
         </button>
 
+        {/* Join Now Button */}
+        <div className="absolute bottom-20 sm:bottom-24 md:bottom-28 left-6 sm:left-8 md:left-12 lg:left-16 z-20">
+          <button
+            onClick={handleJoinNow}
+            className="group relative px-8 py-4 sm:px-10 sm:py-4 md:px-12 md:py-5 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-full shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 hover:shadow-3xl overflow-hidden"
+          >
+            <span className="relative z-10 flex items-center gap-2 sm:gap-3 text-base sm:text-lg md:text-xl">
+              Join Now
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-rose-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </button>
+        </div>
+
         {/* Indicator dots */}
         <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20">
           <div className="flex items-center space-x-2 sm:space-x-3 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 sm:px-5 sm:py-2.5">
-            {images.map((_, index) => (
+            {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
@@ -137,7 +190,7 @@ const HeroCarousel: React.FC = () => {
           }
         }
 
-        /* Desktop view - keep original cover behavior */
+        /* Desktop - Full cover */
         @media (min-width: 1025px) {
           section img {
             object-fit: cover !important;
@@ -145,30 +198,21 @@ const HeroCarousel: React.FC = () => {
           }
         }
 
-        /* Tablet view - zoom out to show full image */
+        /* Tablet - Zoom out to show full image */
         @media (min-width: 769px) and (max-width: 1024px) {
           section img {
             object-fit: contain !important;
-            object-position: center !important;
-            background-color: #f3f4f6;
+            max-width: 100%;
+            max-height: 100%;
           }
         }
 
-        /* Mobile view - zoom out more to show full image */
+        /* Mobile - Zoom out more to show full image */
         @media (max-width: 768px) {
           section img {
             object-fit: contain !important;
-            object-position: center !important;
-            background-color: #f3f4f6;
-          }
-        }
-
-        /* Small mobile devices - ensure full visibility */
-        @media (max-width: 480px) {
-          section img {
-            object-fit: contain !important;
-            object-position: center !important;
-            background-color: #f3f4f6;
+            max-width: 100%;
+            max-height: 100%;
           }
         }
       `}</style>
