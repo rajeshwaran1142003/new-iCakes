@@ -72,7 +72,16 @@ const Course: React.FC = () => {
   return (
     <div className="min-h-screen overflow-x-hidden" style={{ backgroundColor: '#DCDCDC' }}>
       {/* HERO */}
-      <section className="relative py-20 md:py-28 bg-gradient-to-br from-pink-600 via-rose-600 to-pink-700 text-white overflow-hidden">
+      <section className="relative py-20 md:py-28 text-white overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+          style={{ backgroundImage: `url(${assetPath('/bg.jpg')})` }}
+        ></div>
+        {/* Pink gradient overlay like homepage */}
+        <div className="absolute inset-0 bg-gradient-to-r from-pink-400/20 to-pink-600/30"></div>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="absolute inset-0 opacity-20">
           <div className="absolute -top-16 -left-16 w-56 h-56 bg-white/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-10 w-40 h-40 bg-white/20 rounded-full blur-3xl animate-pulse delay-1000"></div>

@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
               <h3 className="text-xl font-semibold">Address</h3>
             </div>
             <div>
-              <p className="font-semibold">Baking Tag</p>
+              <p className="font-semibold">Ayath iCakes</p>
               <p className="text-gray-300">59A, Samthariya Nagar, 4th Street,</p>
               <p className="text-gray-300">Ambattur, Chennai - 600053</p>
             </div>
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
 
         {/* Bottom bar */}
         <div className="pt-6 flex flex-col md:flex-row items-center md:items-center justify-between text-sm text-gray-400 gap-4 text-center md:text-left">
-          <p className="w-full md:w-auto order-3 md:order-none">All Rights Reserved @ Baking Tag</p>
+          <p className="w-full md:w-auto order-3 md:order-none">All Rights Reserved @ Ayath iCakes</p>
           <div className="flex items-center gap-4 justify-center w-full md:w-auto">
             <a
               href="https://www.instagram.com/ayath_icakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="

@@ -91,7 +91,7 @@ const Specialties: React.FC = () => {
                 </div>
 
                 <a
-                  href={`https://wa.me/918248477869?text=${encodeURIComponent(`👋 Hello Ayath_iCakes!
+                  href={`https://wa.me/918248477869?text=${encodeURIComponent(`👋 Hello Ayath iCakes!
 
 🎂 I'm interested in ordering: ${specialty.title}
 

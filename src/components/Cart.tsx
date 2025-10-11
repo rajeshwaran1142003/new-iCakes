@@ -109,7 +109,7 @@ const Cart: React.FC = () => {
               </div>
 
               <a
-                href="https://wa.me/918248477869?text=Hi%20Ayath_iCakes!%20I%20would%20like%20to%20place%20an%20order."
+                href="https://wa.me/918248477869?text=Hi%20Ayath%20iCakes!%20I%20would%20like%20to%20place%20an%20order."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white py-4 rounded-full hover:from-pink-600 hover:to-pink-700 transition-all duration-300 font-semibold text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"

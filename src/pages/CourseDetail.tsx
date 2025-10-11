@@ -322,7 +322,7 @@ const CourseDetail: React.FC = () => {
   }
 
   const handleJoinClass = () => {
-    const whatsappMessage = `Hi%20Ayath_iCakes!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20joining%20the%20*${encodeURIComponent(course.title)}*%0A%0APlease%20share%20details%20about%3A%0A%E2%80%A2%20Course%20fees%20%26%20payment%20plans%0A%E2%80%A2%20Next%20available%20batch%20dates%0A%E2%80%A2%20What's%20included%20in%20the%20course%0A%E2%80%A2%20Certification%20details%0A%0AThank%20you!`;
+    const whatsappMessage = `Hi%20Ayath%20iCakes!%20%F0%9F%91%8B%0A%0AI'm%20interested%20in%20joining%20the%20*${encodeURIComponent(course.title)}*%0A%0APlease%20share%20details%20about%3A%0A%E2%80%A2%20Course%20fees%20%26%20payment%20plans%0A%E2%80%A2%20Next%20available%20batch%20dates%0A%E2%80%A2%20What's%20included%20in%20the%20course%0A%E2%80%A2%20Certification%20details%0A%0AThank%20you!`;
     window.open(`https://wa.me/918248477869?text=${whatsappMessage}`, '_blank');
   };
 

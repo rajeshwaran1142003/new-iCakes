@@ -76,15 +76,15 @@ const AdvancedCourse: React.FC = () => {
                 <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Black forest Cake</span></div>
                 <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Fruit filler Cake</span></div>
                 <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Chocolate Truffle Cake</span></div>
-                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Rosamalai Cake</span></div>
-                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Burble Cake</span></div>
+                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Rasamalai Cake</span></div>
+                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Barbie Cake</span></div>
               </div>
             </div>
             <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="font-semibold text-gray-900 mb-4 text-xl">Desserts</h3>
               <div className="space-y-3 text-gray-800 text-base md:text-lg">
                 <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Brownie</span></div>
-                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Jas Cake</span></div>
+                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Jar Cake</span></div>
                 <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Cup Cake</span></div>
                 <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Tea Cake</span></div>
               </div>
@@ -92,16 +92,16 @@ const AdvancedCourse: React.FC = () => {
             <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="font-semibold text-gray-900 mb-4 text-xl">Cookies</h3>
               <div className="space-y-3 text-gray-800 text-base md:text-lg">
-                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Salt Cookie</span></div>
-                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Coconut Cookie</span></div>
-                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Cosak Cookie</span></div>
+                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Salt Cookies</span></div>
+                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Coconut Cookies</span></div>
+                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Cassak Cookies</span></div>
               </div>
             </div>
             <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="font-semibold text-gray-900 mb-4 text-xl">Breads & Buns</h3>
               <div className="space-y-3 text-gray-800 text-base md:text-lg">
                 <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Coconut Bun</span></div>
-                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Lualic Bread</span></div>
+                <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Garlic Bread</span></div>
                 <div className="flex items-start space-x-3"><span className="text-pink-600">🍰</span><span>Pizza</span></div>
               </div>
             </div>

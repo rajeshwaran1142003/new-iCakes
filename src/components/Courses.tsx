@@ -182,13 +182,13 @@ const Courses: React.FC = () => {
                     <span className="text-gray-700 font-medium">Batch 6-8</span>
                   </div>
                 </div>
-                <a
-                  href={`/courses/${course.id}`}
+                <Link
+                  to={`/courses/${course.id}`}
                   className={`inline-flex items-center space-x-2 bg-gradient-to-r ${course.color.primary} ${course.color.hover} text-white px-8 py-4 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-lg`}
                 >
                   <span>Learn More</span>
                   <ArrowRight className="h-5 w-5" />
-                </a>
+                </Link>
               </div>
 
               {/* Image column */}
@@ -212,7 +212,7 @@ const Courses: React.FC = () => {
               </div>
             </div>
             <h3 className="text-3xl md:text-4xl font-bold text-white">
-              Why Choose Ayath_iCakes Baking Classes?
+              Why Choose Ayath iCakes Baking Classes?
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl">

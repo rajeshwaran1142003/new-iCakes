@@ -7,8 +7,8 @@ const Contact: React.FC = () => {
     name: '',
     phone: '',
     email: '',
-    cakeType: '',
-    eventDate: '',
+    courseType: '',
+    preferredBatchDate: '',
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -28,12 +28,12 @@ const Contact: React.FC = () => {
   };
 
   const services = [
-    'Custom Cake Designs',
-    'Home Delivery Available',
-    'Bulk Orders Welcome',
-    'Same Day Delivery (T&C Apply)',
-    'Corporate Orders',
-    'Wedding Cakes'
+    'Basic to Advanced Baking Courses',
+    'Small Batches, Hands-on Practice',
+    'Certificate Upon Completion',
+    'Mentor Support & Doubt Clearing',
+    'Workshop & Fast-Track Sessions',
+    'Career Guidance for Home Bakers'
   ];
 
   return (
@@ -45,12 +45,12 @@ const Contact: React.FC = () => {
             Get in Touch
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Ready to Make Your
-            <span className="block text-pink-600">Celebration Sweeter?</span>
+            Ready to Level Up Your
+            <span className="block text-pink-600">Baking Skills?</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Let's create something amazing together. Contact us for custom orders, 
-            bulk bookings, or any questions about our offerings.
+            Reach out to learn about our baking classes, batches, fees, and curriculum—
+            we’ll help you pick the right course for your goals.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
                 </a>
 
                 <a
-                  href="mailto:ayathicakes@gmail.com?subject=Cake%20Order%20Enquiry&body=Hi%20Ayath_iCakes%2C%0A%0AI%20would%20like%20to%20enquire%20about%3A%0A%0A-%20Type%20of%20cake%3A%0A-%20Occasion%3A%0A-%20Preferred%20delivery%20date%3A%0A-%20Any%20special%20requirements%3A%0A%0AThank%20you!"
+                  href="mailto:ayathicakes@gmail.com?subject=Course%20Enquiry%20-%20Baking%20Classes&body=Hi%20Ayath%20Baking%20Studio%2C%0A%0AI%20would%20like%20to%20enquire%20about%20your%20baking%20classes.%20Details%3A%0A%0A-%20Course%20interest%20(Basic%2FAdvanced%2FMaster)%3A%0A-%20Preferred%20batch%20month%2Fdate%3A%0A-%20My%20baking%20experience%20(beginner%2Fintermediate%2Fadvanced)%3A%0A-%20Any%20specific%20goals%20or%20questions%3A%0A%0AThanks!"
                   className="flex items-center space-x-4 p-4 bg-pink-50 rounded-2xl hover:bg-pink-100 transition-colors group"
                 >
                   <div className="bg-pink-500 p-3 rounded-full">
@@ -147,7 +147,7 @@ const Contact: React.FC = () => {
                   <span>Follow on Instagram</span>
                 </a>
                 <a
-                  href="https://wa.me/918248477869?text=Hi%20Ayath_iCakes!%20I%20would%20like%20to%20enquire%20about%20ordering%20a%20cake.%20%F0%9F%8E%82"
+                  href="https://wa.me/918248477869?text=Hi%20Ayath%20Baking%20Studio!%20I%20want%20to%20enquire%20about%20your%20baking%20classes%20%C3%B0%C5%B8%C2%8D%C2%B0"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center space-x-2 bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors font-medium"
@@ -168,7 +168,7 @@ const Contact: React.FC = () => {
 
           {/* Contact Form */}
           <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Ask About Our Classes</h3>
             
             {isSubmitted ? (
               <div className="text-center py-12">
@@ -228,29 +228,29 @@ const Contact: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Cake Type
+                      Course Interest
                     </label>
                     <select
-                      name="cakeType"
-                      value={formData.cakeType}
+                      name="courseType"
+                      value={formData.courseType}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
                     >
-                      <option value="">Select cake type</option>
-                      <option value="fusion">Fusion Cake</option>
-                      <option value="truffle">Truffle Cake</option>
-                      <option value="brownies">Brownies</option>
-                      <option value="custom">Custom Design</option>
+                      <option value="">Select course</option>
+                      <option value="basic">Basic Baking</option>
+                      <option value="advanced">Advanced Baking</option>
+                      <option value="master">Master Course</option>
+                      <option value="workshop">Workshop</option>
                     </select>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Event Date
+                      Preferred Batch Date
                     </label>
                     <input
                       type="date"
-                      name="eventDate"
-                      value={formData.eventDate}
+                      name="preferredBatchDate"
+                      value={formData.preferredBatchDate}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
                     />
@@ -259,7 +259,7 @@ const Contact: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Special Requirements
+                    Your Goals or Questions
                   </label>
                   <textarea
                     name="message"
@@ -267,7 +267,7 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     rows={4}
                     className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all resize-none"
-                    placeholder="Tell us about your special requirements, flavor preferences, design ideas, etc."
+                    placeholder="Tell us what you want to learn, your experience level, and any questions you have."
                   ></textarea>
                 </div>
 
@@ -276,7 +276,7 @@ const Contact: React.FC = () => {
                   className="w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white py-4 px-6 rounded-xl hover:from-pink-600 hover:to-pink-700 transition-all duration-300 font-semibold text-lg flex items-center justify-center space-x-2 transform hover:-translate-y-1 shadow-lg"
                 >
                   <Send className="h-5 w-5" />
-                  <span>Send Message</span>
+                  <span>Enquire Now</span>
                 </button>
               </form>
             )}
@@ -317,7 +317,7 @@ const Contact: React.FC = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ayath_iCakes Location Map"
+                title="Ayath iCakes Location Map"
                 className="filter contrast-125"
               ></iframe>
               
@@ -325,10 +325,10 @@ const Contact: React.FC = () => {
               <div className="absolute top-4 left-4 bg-white p-4 rounded-xl shadow-md max-w-xs animate-slide-up">
                 <div className="flex items-start space-x-3">
                   <div className="h-10 w-10 overflow-hidden rounded-full border-2 border-pink-200 flex-shrink-0">
-                    <img src={assetPath('/logo.jpg')} alt="Ayath_iCakes Logo" className="w-full h-full object-cover" />
+                    <img src={assetPath('/logo.jpg')} alt="Ayath iCakes Logo" className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900">Ayath_iCakes</h4>
+                    <h4 className="font-bold text-gray-900">Ayath iCakes</h4>
                     <p className="text-sm text-gray-600">Premium Baking Studio</p>
                     <div className="flex items-center space-x-2 mt-1">
                       <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -358,7 +358,7 @@ const Contact: React.FC = () => {
                 <span className="font-medium text-gray-700">Open in Google Maps</span>
               </a>
               <a
-                href={`https://wa.me/918248477869?text=Hi%20Ayath_iCakes!%20I%20need%20directions%20to%20your%20store.`}
+                href={`https://wa.me/918248477869?text=Hi%20Ayath%20iCakes!%20I%20need%20directions%20to%20your%20store.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center space-x-2 bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group sm:col-span-2 md:col-span-1"

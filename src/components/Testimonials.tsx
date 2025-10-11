@@ -5,29 +5,29 @@ const Testimonials: React.FC = () => {
   const testimonials = [
     {
       name: 'Priya R.',
-      location: 'Chennai',
+      location: 'Beginner Batch – Chennai',
       rating: 5,
-      text: 'Ordered a fusion mango cake for my daughter\'s birthday—absolutely divine! The presentation was stunning, and the taste was even better. The team at Ayath_iCakes exceeded all our expectations.'
+      text: 'I joined the basic baking class and learned so much in just a few sessions. The hands-on guidance and tips boosted my confidence to bake at home!'
     },
     {
       name: 'Rajesh K.',
-      location: 'Regular Customer',
+      location: 'Advanced Batch Graduate',
       rating: 5,
-      text: 'Best truffle cake in Ambattur! The quality and freshness are unmatched. I have been ordering from them for over a year. Highly recommend Ayath_iCakes for any celebration!'
+      text: 'The advanced module was fantastic—especially the science behind techniques. I can now perfect pastries and sponges consistently. Highly recommend these classes!'
     },
     {
       name: 'Sneha M.',
-      location: 'Corporate Client',
+      location: 'Home Baker – Ambattur',
       rating: 5,
-      text: 'Professional service, on-time delivery, and the brownies were a hit at our office party. The attention to detail and customer service are exceptional. Will definitely order again!'
+      text: 'Structured lessons, supportive mentors, and clear notes. I started taking small baking orders after the course—these classes truly elevated my skills.'
     }
   ];
 
   const stats = [
-    { number: '1000+', label: 'Happy Customers' },
+    { number: '1000+', label: 'Happy Learners' },
     { number: '5.0', label: 'Average Rating' },
     { number: '3+', label: 'Years Experience' },
-    { number: '24/7', label: 'Order Support' }
+    { number: '24/7', label: 'Mentor Support' }
   ];
 
   // Simple initials generator for avatar
@@ -53,15 +53,14 @@ const Testimonials: React.FC = () => {
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
           <div className="inline-block bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-medium">
-            Customer Love
+            Learner Stories
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            What Our Customers
+            What Our Learners
             <span className="block text-pink-600">Say About Us</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it—hear from our happy customers who have experienced 
-            the magic of our cakes.
+            Hear from happy learners who transformed their baking with our hands-on classes.
           </p>
         </div>
 
@@ -157,11 +156,11 @@ const Testimonials: React.FC = () => {
         <div className="text-center mt-16">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Join Our Happy Customers!
+              Join Our Happy Learners!
             </h3>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Experience the joy of our premium cakes and become part of our growing family of 
-              satisfied customers. Your celebration deserves the best!
+              Experience the joy of baking with us and become part of our growing community of
+              skilled home bakers. Your learning journey deserves the best!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -170,13 +169,13 @@ const Testimonials: React.FC = () => {
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-full hover:from-pink-600 hover:to-pink-700 transition-all duration-300 font-semibold transform hover:-translate-y-1 shadow-lg"
               >
-                Order Your Dream Cake
+                Enroll in a Baking Class
               </a>
               <a
                 href="tel:8248477869"
                 className="border-2 border-pink-500 text-pink-600 px-8 py-4 rounded-full hover:bg-pink-500 hover:text-white transition-all duration-300 font-semibold"
               >
-                Call Now: 8248477869
+                Call for Course Info: 8248477869
               </a>
             </div>
           </div>

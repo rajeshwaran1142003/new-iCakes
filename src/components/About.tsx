@@ -1,86 +1,109 @@
 import React from 'react';
+import { assetPath } from '../utils/assetPath';
 import { Award, Heart, Users, Sparkles } from 'lucide-react';
 
 const About: React.FC = () => {
   const features = [
     {
       icon: Heart,
-      title: 'Passion-Driven',
-      description: 'Every cake is crafted with love and attention to detail'
+      title: 'Passion-Driven Teaching',
+      description: 'Hands-on classes with patient mentoring and real-time feedback'
     },
     {
       icon: Award,
-      title: 'Certified Quality',
-      description: 'Certified course provider for your peace of mind'
+      title: 'Certified Courses',
+      description: 'Structured modules with certificate upon completion'
     },
     {
       icon: Users,
-      title: 'Customer First',
-      description: '1000+ happy customers across Chennai'
+      title: 'Learner First',
+      description: '1000+ happy learners who improved their baking skills'
     },
     {
       icon: Sparkles,
-      title: 'Premium Ingredients',
-      description: 'Only the finest, freshest ingredients in every creation'
+      title: 'Practical Skills',
+      description: 'Master techniques, tools, and baking science you can apply at home'
     }
   ];
 
   return (
-    <section id="about" className="py-20" style={{ backgroundColor: '#DCDCDC' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 relative overflow-hidden" style={{ backgroundColor: '#DCDCDC' }}>
+      {/* Decorative gradient blobs */}
+      <div className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 bg-pink-300/30 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 bg-rose-300/30 rounded-full blur-3xl" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="inline-block bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-medium">
-                About Ayath_iCakes
+                About Ayath Baking Studio
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                Where Passion Meets 
-                <span className="block text-pink-600">Perfection</span>
+                Learn the Art of
+                <span className="block text-pink-600">Professional Baking</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Welcome to Ayath_iCakes, where every bite tells a story of dedication and craftsmanship. 
-                Located in Samthariya Nagar, Ambattur, Chennai, we are a certified baking studio that transforms 
-                ordinary celebrations into extraordinary memories.
+                Welcome to Ayath Baking Studio—your friendly space to build real baking skills with confidence. 
+                Located in Samthariya Nagar, Ambattur, Chennai, we offer certified baking courses from basics to advanced.
               </p>
+
+              {/* Learner badges */}
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs font-medium bg-white text-pink-700 shadow">Small Batches</span>
+                <span className="px-3 py-1 rounded-full text-xs font-medium bg-white text-pink-700 shadow">Hands-on Practice</span>
+                <span className="px-3 py-1 rounded-full text-xs font-medium bg-white text-pink-700 shadow">Certificate</span>
+                <span className="px-3 py-1 rounded-full text-xs font-medium bg-white text-pink-700 shadow">Mentor Support</span>
+              </div>
             </div>
 
             <div className="prose prose-lg text-gray-600">
               <p>
-                Our journey began with a simple dream—to bring joy through exceptional baking. 
-                Today, we're proud to run certified course programs, ensuring quality and trust in every class.
+                Our journey began with a simple dream—to help aspiring bakers learn the craft with clarity and joy. 
+                Today, we run structured, certificate courses with small batches, personal attention, and lifetime mentorship.
               </p>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-900">✨ What Makes Us Special:</h3>
+              <h3 className="text-xl font-semibold text-gray-900">✨ What You’ll Learn & Experience</h3>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                  <span>Fusion cakes with unique flavor combinations</span>
+                  <span>Foundations: mixing methods, measurements, and oven science</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                  <span>Rich, decadent Truffle Cakes</span>
+                  <span>Sponges, breads, brownies, and pastries—step-by-step</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                  <span>Gourmet brownies that melt in your mouth</span>
+                  <span>Frosting, layering, finishing, and presentation</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                  <span>Custom designs for every celebration</span>
+                  <span>Small batches, hands-on mentoring, and clear notes</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                  <span>Premium ingredients sourced locally</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
-                  <span>Hygienic preparation with certified standards</span>
+                  <span>Certificate upon completion and home-baker guidance</span>
                 </li>
               </ul>
+
+              {/* Stats grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+                {[{n:'1000+',l:'Happy Learners'},{n:'5.0',l:'Avg. Rating'},{n:'3+',l:'Years Teaching'}].map((s, i) => (
+                  <div key={i} className="bg-white rounded-2xl p-4 text-center shadow">
+                    <div className="text-2xl font-bold text-pink-600">{s.n}</div>
+                    <div className="text-sm text-gray-600">{s.l}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <a href="/courses" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-rose-600 text-white font-semibold shadow hover:from-pink-600 hover:to-rose-700 transition-transform hover:-translate-y-0.5">Explore Courses</a>
+                <a href="/contact" className="inline-flex items-center justify-center px-6 py-3 rounded-full border-2 border-pink-500 text-pink-600 font-semibold hover:bg-pink-50">Ask About Batches</a>
+              </div>
             </div>
           </div>
 
@@ -88,13 +111,13 @@ const About: React.FC = () => {
           <div className="space-y-8">
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="https://images.pexels.com/photos/2531546/pexels-photo-2531546.jpeg?auto=compress&cs=tinysrgb&w=400"
-                alt="Baker decorating cake"
+                src={assetPath('/product/img2.jpg')}
+                alt="Baking class showcase – product image 2"
                 className="w-full h-48 object-cover rounded-2xl shadow-lg"
               />
               <img
-                src="https://images.pexels.com/photos/1721932/pexels-photo-1721932.jpeg?auto=compress&cs=tinysrgb&w=400"
-                alt="Beautiful chocolate truffle cake"
+                src={assetPath('/product/img3.jpg')}
+                alt="Baking class showcase – product image 3"
                 className="w-full h-48 object-cover rounded-2xl shadow-lg mt-8"
               />
             </div>

@@ -1,13 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { assetPath } from '../utils/assetPath';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  
+  // Detect scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -23,20 +36,15 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
+    <header 
+      className={`sticky top-0 z-50 shadow-lg transition-all duration-300 ${
+        isScrolled ? 'bg-white' : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="h-12 w-12 overflow-hidden rounded-full border-2 border-pink-200">
-              <img src={assetPath('/logo.jpg')} alt="Ayath iCakes Logo" className="w-full h-full object-cover" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-pink-700 bg-clip-text text-transparent">
-                Ayath iCakes
-              </h1>
-              <p className="text-xs text-gray-600">Baking Studio</p>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -48,8 +56,9 @@ export default function Header() {
                 className={`relative font-medium transition-colors duration-300 ${
                   isActiveLink(item.path)
                     ? 'text-pink-600 font-bold'
-                    : 'text-gray-700 hover:text-pink-600'
+                    : 'text-black hover:text-pink-400'
                 }`}
+                style={{ textShadow: '0 1px 2px rgba(255, 255, 255, 0.5)' }}
               >
                 {item.name}
                 <span
@@ -68,7 +77,8 @@ export default function Header() {
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-gray-600"
+              className="p-2 text-black transition-colors duration-300"
+              style={{ filter: 'drop-shadow(0 1px 2px rgba(255, 255, 255, 0.5))' }}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -77,7 +87,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden pb-6">
+          <div className="md:hidden pb-6 bg-white/90 backdrop-blur-md">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <Link
@@ -87,7 +97,7 @@ export default function Header() {
                   className={`font-medium transition-colors ${
                     isActiveLink(item.path)
                       ? 'text-pink-600 font-bold'
-                      : 'text-gray-700 hover:text-pink-600'
+                      : 'text-black hover:text-pink-400'
                   } px-4 py-2 rounded-lg`}
                 >
                   {item.name}
