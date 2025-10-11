@@ -15,6 +15,7 @@ import TestimonialsPage from './pages/TestimonialsPage';
 import BasicCourse from './pages/course/BasicCourse';
 import AdvancedCourse from './pages/course/AdvancedCourse';
 import MasterCourse from './pages/course/MasterCourse';
+import MobileHeroCarousel from './components/MobileHeroCarousel';
 
 // Add page transition wrapper
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
@@ -57,6 +58,8 @@ function App() {
     <Router>
       <div className="min-h-screen bg-white">
         <Header />
+        {/* Mobile/Tablet Hero - Only on homepage, below header */}
+        <MobileHeroWrapper />
         <Suspense fallback={<Loading />}>
           <PageTransition>
             {/* Hash-based smooth scrolling across routes */}
@@ -83,6 +86,20 @@ function App() {
         {/* No Cart: this is a course learning site */}
       </div>
     </Router>
+  );
+}
+
+// Mobile Hero Wrapper - Shows only on homepage and mobile/tablet (below header)
+function MobileHeroWrapper() {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+  
+  if (!isHomePage) return null;
+  
+  return (
+    <div className="lg:hidden">
+      <MobileHeroCarousel />
+    </div>
   );
 }
 

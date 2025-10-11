@@ -244,8 +244,8 @@ const Hero: React.FC = () => {
           animation: fade-up-delay 0.8s ease-out 0.3s both;
         }
 
-        /* Adjust background images for mobile - smaller/zoomed out view */
-        @media (max-width: 768px) {
+        /* Adjust background images for mobile and tablet - zoomed out to show full image */
+        @media (max-width: 1024px) {
           .absolute.inset-0.w-full.h-full {
             background-size: contain !important;
             background-position: center center !important;
@@ -255,10 +255,24 @@ const Hero: React.FC = () => {
           }
         }
         
+        /* For tablets - slightly smaller to ensure full visibility */
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .absolute.inset-0.w-full.h-full {
+            background-size: 90% !important;
+          }
+        }
+        
+        /* For mobile devices - smaller background to show full image */
+        @media (max-width: 768px) {
+          .absolute.inset-0.w-full.h-full {
+            background-size: 85% !important;
+          }
+        }
+        
         /* For very small mobile devices - even smaller background */
         @media (max-width: 480px) {
           .absolute.inset-0.w-full.h-full {
-            background-size: 80% !important;
+            background-size: 75% !important;
           }
         }
 
