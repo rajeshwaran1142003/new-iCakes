@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { assetPath } from '../utils/assetPath';
 import { Phone, Mail, MapPin, Clock, MessageCircle, Send, CheckCircle, Instagram } from 'lucide-react';
+import AnimatedElement from './AnimatedElement';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -41,30 +42,39 @@ const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
-          <div className="inline-block bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-medium">
-            Get in Touch
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Ready to Level Up Your
-            <span className="block text-pink-600">Baking Skills?</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <AnimatedElement animation="zoom-in" delay={100}>
+            <div className="inline-block bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-medium">
+              Get in Touch
+            </div>
+          </AnimatedElement>
+          <AnimatedElement animation="fade-up" delay={200}>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Ready to Level Up Your
+              <span className="block text-pink-600">Baking Skills?</span>
+            </h2>
+          </AnimatedElement>
+          <AnimatedElement animation="fade-up" delay={300}>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Reach out to learn about our baking classes, batches, fees, and curriculum—
             we’ll help you pick the right course for your goals.
           </p>
+          </AnimatedElement>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-gray-900">Contact Information</h3>
+              <AnimatedElement animation="fade-right" delay={100}>
+                <h3 className="text-2xl font-bold text-gray-900">Contact Information</h3>
+              </AnimatedElement>
               
               <div className="space-y-4">
-                <a
-                  href="tel:8248477869"
-                  className="flex items-center space-x-4 p-4 bg-pink-50 rounded-2xl hover:bg-pink-100 transition-colors group"
-                >
+                <AnimatedElement animation="fade-right" delay={200}>
+                  <a
+                    href="tel:8248477869"
+                    className="flex items-center space-x-4 p-4 bg-pink-50 rounded-2xl hover:bg-pink-100 transition-all hover:scale-105 group"
+                  >
                   <div className="bg-pink-500 p-3 rounded-full">
                     <Phone className="h-6 w-6 text-white" />
                   </div>
@@ -72,12 +82,14 @@ const Contact: React.FC = () => {
                     <h4 className="font-semibold text-gray-900 group-hover:text-pink-600">Phone</h4>
                     <p className="text-pink-600 font-medium">8248477869</p>
                   </div>
-                </a>
+                  </a>
+                </AnimatedElement>
 
-                <a
-                  href="mailto:ayathicakes@gmail.com?subject=Course%20Enquiry%20-%20Baking%20Classes&body=Hi%20Ayath%20Baking%20Studio%2C%0A%0AI%20would%20like%20to%20enquire%20about%20your%20baking%20classes.%20Details%3A%0A%0A-%20Course%20interest%20(Basic%2FAdvanced%2FMaster)%3A%0A-%20Preferred%20batch%20month%2Fdate%3A%0A-%20My%20baking%20experience%20(beginner%2Fintermediate%2Fadvanced)%3A%0A-%20Any%20specific%20goals%20or%20questions%3A%0A%0AThanks!"
-                  className="flex items-center space-x-4 p-4 bg-pink-50 rounded-2xl hover:bg-pink-100 transition-colors group"
-                >
+                <AnimatedElement animation="fade-right" delay={250}>
+                  <a
+                    href="mailto:ayathicakes@gmail.com?subject=Course%20Enquiry%20-%20Baking%20Classes&body=Hi%20Ayath%20Baking%20Studio%2C%0A%0AI%20would%20like%20to%20enquire%20about%20your%20baking%20classes.%20Details%3A%0A%0A-%20Course%20interest%20(Basic%2FAdvanced%2FMaster)%3A%0A-%20Preferred%20batch%20month%2Fdate%3A%0A-%20My%20baking%20experience%20(beginner%2Fintermediate%2Fadvanced)%3A%0A-%20Any%20specific%20goals%20or%20questions%3A%0A%0AThanks!"
+                    className="flex items-center space-x-4 p-4 bg-pink-50 rounded-2xl hover:bg-pink-100 transition-all hover:scale-105 group"
+                  >
                   <div className="bg-pink-500 p-3 rounded-full">
                     <Mail className="h-6 w-6 text-white" />
                   </div>
@@ -85,9 +97,11 @@ const Contact: React.FC = () => {
                     <h4 className="font-semibold text-gray-900 group-hover:text-pink-600">Email</h4>
                     <p className="text-pink-600 font-medium">ayathicakes@gmail.com</p>
                   </div>
-                </a>
+                  </a>
+                </AnimatedElement>
 
-                <div className="flex items-start space-x-4 p-4 bg-pink-50 rounded-2xl hover:bg-pink-100 transition-colors group">
+                <AnimatedElement animation="fade-right" delay={300}>
+                  <div className="flex items-start space-x-4 p-4 bg-pink-50 rounded-2xl hover:bg-pink-100 transition-all hover:scale-105 group">
                   <div className="bg-pink-500 p-3 rounded-full">
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
@@ -106,9 +120,11 @@ const Contact: React.FC = () => {
                       </a>
                     </div>
                   </div>
-                </div>
+                  </div>
+                </AnimatedElement>
 
-                <div className="flex items-center space-x-4 p-4 bg-pink-50 rounded-2xl">
+                <AnimatedElement animation="fade-right" delay={350}>
+                  <div className="flex items-center space-x-4 p-4 bg-pink-50 rounded-2xl hover:bg-pink-100 transition-all hover:scale-105">
                   <div className="bg-pink-500 p-3 rounded-full">
                     <Clock className="h-6 w-6 text-white" />
                   </div>
@@ -116,59 +132,73 @@ const Contact: React.FC = () => {
                     <h4 className="font-semibold text-gray-900">Hours</h4>
                     <p className="text-gray-600">Mon-Sun: 9:00 AM - 8:00 PM</p>
                   </div>
-                </div>
+                  </div>
+                </AnimatedElement>
               </div>
             </div>
 
             {/* Services */}
             <div className="space-y-4">
-              <h3 className="text-xl font-bold text-gray-900">Our Services</h3>
+              <AnimatedElement animation="fade-right" delay={100}>
+                <h3 className="text-xl font-bold text-gray-900">Our Services</h3>
+              </AnimatedElement>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {services.map((service, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-pink-500" />
-                    <span className="text-gray-600 text-sm">{service}</span>
-                  </div>
+                  <AnimatedElement key={index} animation="fade-up" delay={200 + index * 50}>
+                    <div className="flex items-center space-x-2">
+                      <CheckCircle className="h-5 w-5 text-pink-500" />
+                      <span className="text-gray-600 text-sm">{service}</span>
+                    </div>
+                  </AnimatedElement>
                 ))}
               </div>
             </div>
 
             {/* Quick Actions */}
             <div className="space-y-4">
-              <h3 className="text-xl font-bold text-gray-900">Quick Actions</h3>
+              <AnimatedElement animation="fade-right" delay={100}>
+                <h3 className="text-xl font-bold text-gray-900">Quick Actions</h3>
+              </AnimatedElement>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="https://www.instagram.com/ayath_icakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-pink-600 transition-colors font-medium group"
-                >
-                  <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
-                  <span>Follow on Instagram</span>
-                </a>
-                <a
-                  href="https://wa.me/918248477869?text=Hi%20Ayath%20Baking%20Studio!%20I%20want%20to%20enquire%20about%20your%20baking%20classes%20%C3%B0%C5%B8%C2%8D%C2%B0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-2 bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors font-medium"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  <span>WhatsApp Us</span>
-                </a>
-                <a
-                  href="tel:8248477869"
-                  className="flex items-center justify-center space-x-2 bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600 transition-colors font-medium"
-                >
-                  <Phone className="h-5 w-5" />
-                  <span>Call Now</span>
-                </a>
+                <AnimatedElement animation="zoom-in" delay={200}>
+                  <a
+                    href="https://www.instagram.com/ayath_icakes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all hover:scale-110 font-medium group"
+                  >
+                    <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                    <span>Follow on Instagram</span>
+                  </a>
+                </AnimatedElement>
+                <AnimatedElement animation="zoom-in" delay={250}>
+                  <a
+                    href="https://wa.me/918248477869?text=Hi%20Ayath%20Baking%20Studio!%20I%20want%20to%20enquire%20about%20your%20baking%20classes%20%C3%B0%C5%B8%C2%8D%C2%B0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center space-x-2 bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-all hover:scale-110 font-medium"
+                  >
+                    <MessageCircle className="h-5 w-5" />
+                    <span>WhatsApp Us</span>
+                  </a>
+                </AnimatedElement>
+                <AnimatedElement animation="zoom-in" delay={300}>
+                  <a
+                    href="tel:8248477869"
+                    className="flex items-center justify-center space-x-2 bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600 transition-all hover:scale-110 font-medium"
+                  >
+                    <Phone className="h-5 w-5" />
+                    <span>Call Now</span>
+                  </a>
+                </AnimatedElement>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Ask About Our Classes</h3>
+          <AnimatedElement animation="fade-left" delay={100}>
+            <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Ask About Our Classes</h3>
             
             {isSubmitted ? (
               <div className="text-center py-12">
@@ -280,13 +310,15 @@ const Contact: React.FC = () => {
                 </button>
               </form>
             )}
-          </div>
+            </div>
+          </AnimatedElement>
         </div>
 
         {/* Map Section */}
         <div className="mt-16">
-          <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-8">
-            <div className="text-center mb-8">
+          <AnimatedElement animation="fade-up" delay={100}>
+            <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-8">
+              <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Visit Our Baking Studio</h3>
               <div className="space-y-2">
                 <p className="text-gray-700 font-medium">
@@ -367,7 +399,8 @@ const Contact: React.FC = () => {
                 <span className="font-medium text-gray-700">Message for Help</span>
               </a>
             </div>
-          </div>
+            </div>
+          </AnimatedElement>
         </div>
       </div>
     </section>

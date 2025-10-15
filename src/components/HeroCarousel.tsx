@@ -142,14 +142,14 @@ const HeroCarousel: React.FC = () => {
         </button>
 
         {/* Join Now Button */}
-        <div className="absolute bottom-20 sm:bottom-24 md:bottom-28 left-6 sm:left-8 md:left-12 lg:left-16 z-20">
+        <div className="absolute bottom-24 sm:bottom-28 md:bottom-32 lg:bottom-28 left-4 sm:left-8 md:left-12 lg:left-16 z-20">
           <button
             onClick={handleJoinNow}
-            className="group relative px-8 py-4 sm:px-10 sm:py-4 md:px-12 md:py-5 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-full shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 hover:shadow-3xl overflow-hidden"
+            className="group relative px-5 py-2.5 sm:px-8 sm:py-3.5 md:px-10 md:py-4 lg:px-12 lg:py-5 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-full shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 hover:shadow-3xl overflow-hidden"
           >
-            <span className="relative z-10 flex items-center gap-2 sm:gap-3 text-base sm:text-lg md:text-xl">
+            <span className="relative z-10 flex items-center gap-1.5 sm:gap-2 md:gap-3 text-sm sm:text-base md:text-lg lg:text-xl">
               Join Now
-              <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </span>

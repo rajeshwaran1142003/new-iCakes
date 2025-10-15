@@ -5,10 +5,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-size: 106.25%; /* Increases base font size from 16px to 17px (6.25% increase) */
   }
 
   body {
     @apply antialiased text-gray-900;
+    font-size: 1rem; /* Uses the new base size from html */
+    line-height: 1.6;
   }
 }
 

@@ -48,10 +48,10 @@ export default function Header() {
             <img 
               src={assetPath('/logo.jpg')} 
               alt="Ayath iCakes Logo" 
-              className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="h-14 w-14 sm:h-16 sm:w-16 md:h-18 md:w-18 rounded-full object-cover shadow-lg hover:shadow-xl transition-shadow duration-300"
             />
-            <div className="hidden sm:block">
-              <h1 className="text-lg sm:text-xl font-bold text-gray-900">Ayath iCakes</h1>
+            <div>
+              <h1 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">Ayath iCakes</h1>
               <p className="text-xs sm:text-sm text-gray-600">Baking Academy</p>
             </div>
           </Link>

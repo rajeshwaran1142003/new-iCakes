@@ -3,6 +3,21 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontSize: {
+        'xs': ['0.8125rem', { lineHeight: '1.25rem' }],      // 13px
+        'sm': ['0.9375rem', { lineHeight: '1.5rem' }],       // 15px
+        'base': ['1.0625rem', { lineHeight: '1.75rem' }],    // 17px (increased from 16px)
+        'lg': ['1.1875rem', { lineHeight: '1.875rem' }],     // 19px (increased from 18px)
+        'xl': ['1.3125rem', { lineHeight: '2rem' }],         // 21px (increased from 20px)
+        '2xl': ['1.5625rem', { lineHeight: '2.25rem' }],     // 25px (increased from 24px)
+        '3xl': ['1.9375rem', { lineHeight: '2.5rem' }],      // 31px (increased from 30px)
+        '4xl': ['2.3125rem', { lineHeight: '2.75rem' }],     // 37px (increased from 36px)
+        '5xl': ['3.0625rem', { lineHeight: '1' }],           // 49px (increased from 48px)
+        '6xl': ['3.8125rem', { lineHeight: '1' }],           // 61px (increased from 60px)
+        '7xl': ['4.8125rem', { lineHeight: '1' }],           // 77px (increased from 72px)
+        '8xl': ['6.0625rem', { lineHeight: '1' }],           // 97px (increased from 96px)
+        '9xl': ['8.0625rem', { lineHeight: '1' }],           // 129px (increased from 128px)
+      },
       colors: {
         'primary-pink': '#ff69b4',
         'soft-pink': '#ffb3d9',

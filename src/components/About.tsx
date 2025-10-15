@@ -1,6 +1,7 @@
 import React from 'react';
 import { assetPath } from '../utils/assetPath';
 import { Award, Heart, Users, Sparkles } from 'lucide-react';
+import AnimatedElement from './AnimatedElement';
 
 const About: React.FC = () => {
   const features = [
@@ -36,17 +37,23 @@ const About: React.FC = () => {
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <div className="inline-block bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-medium">
-                About Ayath Baking Studio
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                Learn the Art of
-                <span className="block text-pink-600">Professional Baking</span>
-              </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Welcome to Ayath Baking Studio—your friendly space to build real baking skills with confidence. 
-                Located in Samthariya Nagar, Ambattur, Chennai, we offer certified baking courses from basics to advanced.
-              </p>
+              <AnimatedElement animation="zoom-in" delay={100}>
+                <div className="inline-block bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-medium">
+                  About Ayath Baking Studio
+                </div>
+              </AnimatedElement>
+              <AnimatedElement animation="fade-up" delay={200}>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                  Learn the Art of
+                  <span className="block text-pink-600">Professional Baking</span>
+                </h2>
+              </AnimatedElement>
+              <AnimatedElement animation="fade-up" delay={300}>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Welcome to Ayath Baking Studio—your friendly space to build real baking skills with confidence. 
+                  Located in Samthariya Nagar, Ambattur, Chennai, we offer certified baking courses from basics to advanced.
+                </p>
+              </AnimatedElement>
 
               {/* Learner badges */}
               <div className="flex flex-wrap gap-2 pt-2">
@@ -110,22 +117,28 @@ const About: React.FC = () => {
           {/* Right Content - Images & Features */}
           <div className="space-y-8">
             <div className="grid grid-cols-2 gap-4">
-              <img
-                src={assetPath('/product/img2.jpg')}
-                alt="Baking class showcase – product image 2"
-                className="w-full h-48 object-cover rounded-2xl shadow-lg"
-              />
-              <img
-                src={assetPath('/product/img3.jpg')}
-                alt="Baking class showcase – product image 3"
-                className="w-full h-48 object-cover rounded-2xl shadow-lg mt-8"
-              />
+              <AnimatedElement animation="zoom-in" delay={200}>
+                <img
+                  src={assetPath('/product/img2.jpg')}
+                  alt="Baking class showcase – product image 2"
+                  className="w-full h-48 object-cover rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105"
+                />
+              </AnimatedElement>
+              <AnimatedElement animation="zoom-in" delay={300}>
+                <img
+                  src={assetPath('/product/img3.jpg')}
+                  alt="Baking class showcase – product image 3"
+                  className="w-full h-48 object-cover rounded-2xl shadow-lg mt-8 transition-transform duration-500 hover:scale-105"
+                />
+              </AnimatedElement>
             </div>
 
             <div className="grid grid-cols-2 gap-6">
               {features.map((feature, index) => (
-                <div
+                <AnimatedElement 
                   key={index}
+                  animation="fade-up" 
+                  delay={400 + (index * 100)}
                   className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
                 >
                   <div className="bg-pink-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
@@ -133,7 +146,7 @@ const About: React.FC = () => {
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">{feature.title}</h3>
                   <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
-                </div>
+                </AnimatedElement>
               ))}
             </div>
           </div>

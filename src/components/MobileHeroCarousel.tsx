@@ -92,49 +92,31 @@ const MobileHeroCarousel: React.FC = () => {
                 : 'opacity-0 translate-x-full z-0'
             }`}
           >
-            {/* Background Image without Overlay */}
-            <div className="absolute inset-0">
+            {/* Background Image with Zoom Animation */}
+            <div className="absolute inset-0 overflow-hidden">
               <img
                 src={slide.image}
-                alt={slide.title}
-                className="w-full h-full object-cover object-center"
+                alt={`Course slide ${index + 1}`}
+                className={`w-full h-full object-cover object-center transition-all duration-1000 ease-out ${
+                  index === currentSlide 
+                    ? 'scale-110 opacity-100' 
+                    : 'scale-100 opacity-0'
+                }`}
               />
             </div>
 
             {/* Content Overlay */}
-            <div className="absolute inset-0 flex flex-col justify-end items-start pb-16 sm:pb-20 md:pb-24 p-4 sm:p-6 md:p-8 z-10">
-              {/* Title with fade-in animation */}
-              <h2 
-                className={`text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2 transition-all duration-700 delay-200 ${
-                  index === currentSlide 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-4'
-                }`}
-              >
-                {slide.title}
-              </h2>
-              
-              {/* Description with fade-in animation */}
-              <p 
-                className={`text-xs sm:text-sm md:text-base text-white/90 mb-3 sm:mb-4 transition-all duration-700 delay-300 ${
-                  index === currentSlide 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-4'
-                }`}
-              >
-                {slide.description}
-              </p>
-
-              {/* Join Now Button with animation */}
+            <div className="absolute inset-0 flex flex-col justify-end items-start pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 md:px-8 z-10">
+              {/* Join Now Button with zoom-in animation */}
               <button
                 onClick={handleJoinNow}
-                className={`group relative px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 hover:scale-110 overflow-hidden text-sm sm:text-base ${
+                className={`group relative px-4 py-2 sm:px-6 sm:py-2.5 md:px-7 md:py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-500 hover:scale-110 overflow-hidden mb-2 sm:mb-0 ${
                   index === currentSlide 
-                    ? 'opacity-100 translate-y-0 delay-400' 
-                    : 'opacity-0 translate-y-4'
+                    ? 'opacity-100 scale-100 delay-300' 
+                    : 'opacity-0 scale-75'
                 }`}
               >
-                <span className="relative z-10 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base">
+                <span className="relative z-10 flex items-center gap-1.5 sm:gap-5 text-xs sm:text-sm md:text-base whitespace-nowrap">
                   Join Now
                   <svg 
                     className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" 
@@ -151,6 +133,25 @@ const MobileHeroCarousel: React.FC = () => {
             </div>
           </div>
         ))}
+
+        {/* Slide Indicators - Dots */}
+        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setCurrentSlide(index);
+                setIsAutoPlaying(false);
+              }}
+              className={`transition-all duration-300 rounded-full ${
+                index === currentSlide
+                  ? 'w-8 h-2 bg-pink-500'
+                  : 'w-2 h-2 bg-white/50 hover:bg-white/80'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
 
         {/* Navigation arrows - Hidden on mobile and tablet */}
         <button
@@ -173,31 +174,37 @@ const MobileHeroCarousel: React.FC = () => {
 
       {/* Custom CSS for enhanced animations */}
       <style>{`
-        /* Smooth fade and slide transitions */
-        @keyframes fadeSlideIn {
+        /* Smooth zoom-in animation for images */
+        @keyframes zoomIn {
           from {
             opacity: 0;
-            transform: translateY(20px);
+            transform: scale(0.9);
           }
           to {
             opacity: 1;
-            transform: translateY(0);
+            transform: scale(1.1);
+          }
+        }
+
+        /* Button pulse animation */
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
           }
         }
 
         /* Enhanced glow effect on hover */
         button:hover {
           box-shadow: 0 0 30px rgba(236, 72, 153, 0.6);
+          animation: pulse 2s infinite;
         }
 
-        /* Smooth image transitions */
-        img {
-          transition: transform 0.7s ease-in-out;
-        }
-
-        /* Zoom effect on active slide */
+        /* Smooth image zoom on active slide */
         .z-10 img {
-          transform: scale(1.05);
+          animation: zoomIn 1s ease-out forwards;
         }
       `}</style>
     </section>
