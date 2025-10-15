@@ -172,11 +172,29 @@ const Courses: React.FC = () => {
         <div className="space-y-16 sm:space-y-20 md:space-y-24">
           {courses.map((course, index) => (
             <div key={course.id} className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
+              {/* Image column */}
+              <AnimatedElement
+                animation="zoom-in"
+                delay={200}
+                className={`${index % 2 === 1 ? 'md:order-2' : ''}`}
+              >
+                <div className="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] shadow-xl group">
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[420px] object-fill transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 pointer-events-none" style={{
+                    background: 'radial-gradient(circle at 30% 20%, rgba(255,255,255,0.25), transparent 60%)'
+                  }}></div>
+                </div>
+              </AnimatedElement>
+
               {/* Text column */}
-              <AnimatedElement 
-                animation="zoom-in" 
+              <AnimatedElement
+                animation="zoom-in"
                 delay={100}
-                className={`${index % 2 === 1 ? 'md:order-2' : ''} px-4 sm:px-0`}
+                className={`${index % 2 === 1 ? 'md:order-1' : ''} px-4 sm:px-0`}
               >
                 <div className="inline-block bg-pink-100 text-pink-600 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">Our Courses</div>
                 <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
@@ -206,24 +224,6 @@ const Courses: React.FC = () => {
                   <span>Learn More</span>
                   <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
                 </Link>
-              </AnimatedElement>
-
-              {/* Image column */}
-              <AnimatedElement 
-                animation="zoom-in" 
-                delay={200}
-                className={`${index % 2 === 1 ? 'md:order-1' : ''}`}
-              >
-                <div className="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] shadow-xl group">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[420px] object-fill transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 pointer-events-none" style={{
-                    background: 'radial-gradient(circle at 30% 20%, rgba(255,255,255,0.25), transparent 60%)'
-                  }}></div>
-                </div>
               </AnimatedElement>
             </div>
           ))}
