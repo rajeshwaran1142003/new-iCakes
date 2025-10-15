@@ -105,7 +105,7 @@ const Courses: React.FC = () => {
 
   return (
     <section id="courses" className="py-10 md:py-16" style={{ backgroundColor: '#DCDCDC' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-10 md:mb-14 space-y-6">
           <AnimatedElement animation="zoom-in" delay={100}>
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg animate-pulse">
@@ -169,7 +169,7 @@ const Courses: React.FC = () => {
         </div>
 
         {/* Vertical, alternating course sections */}
-        <div className="space-y-16 sm:space-y-20 md:space-y-24">
+        <div className="space-y-16 sm:space-y-20 md:space-y-24 -mx-4 md:mx-0">
           {courses.map((course, index) => (
             <div key={course.id} className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
               {/* Image column */}
@@ -178,7 +178,7 @@ const Courses: React.FC = () => {
                 delay={200}
                 className={`${index % 2 === 1 ? 'md:order-2' : ''}`}
               >
-                <div className="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] shadow-xl group">
+                <div className="relative overflow-hidden md:rounded-[2rem] shadow-xl group">
                   <img
                     src={course.image}
                     alt={course.title}
@@ -194,7 +194,7 @@ const Courses: React.FC = () => {
               <AnimatedElement
                 animation="zoom-in"
                 delay={100}
-                className={`${index % 2 === 1 ? 'md:order-1' : ''} px-4 sm:px-0`}
+                className={`${index % 2 === 1 ? 'md:order-1' : ''} px-4 md:px-0`}
               >
                 <div className="inline-block bg-pink-100 text-pink-600 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">Our Courses</div>
                 <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
