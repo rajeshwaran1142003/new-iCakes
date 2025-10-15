@@ -215,10 +215,10 @@ const Courses: React.FC = () => {
                 className={`${index % 2 === 1 ? 'md:order-1' : ''}`}
               >
                 <div className="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] shadow-xl group">
-                  <img 
-                    src={course.image} 
-                    alt={course.title} 
-                    className="w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[420px] object-cover object-center transition-transform duration-700 group-hover:scale-110" 
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[420px] object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 pointer-events-none" style={{
                     background: 'radial-gradient(circle at 30% 20%, rgba(255,255,255,0.25), transparent 60%)'
